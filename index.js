@@ -1,6 +1,23 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const Mustache = require('mustache');
+const path = require('path');
+
+/**
+ * Resolves the repository path, relatively to the GITHUB_WORKSPACE
+ */
+ export function retrieveRepositoryPath() {
+  let githubWorkspacePath = process.env['GITHUB_WORKSPACE'];
+
+  if (!githubWorkspacePath) {
+    throw new Error('GITHUB_WORKSPACE not defined');
+  }
+
+  githubWorkspacePath = path.resolve(githubWorkspacePath);
+  core.debug(`GITHUB_WORKSPACE = '${githubWorkspacePath}'`);
+
+  return githubWorkspacePath;
+}
 
 const DefaultTemplate = `
 📌 Service: *{{ serviceName }}*
@@ -37,7 +54,7 @@ try {
   let templateMessage = DefaultTemplate;
 
   try {
-    templateMessage = require(inputs.template);
+    templateMessage = require(path.resolve(retrieveRepositoryPath(), inputs.template));
   } catch (e) {
     core.error('Template file was provided, but can not be injected');
     core.error(e);
