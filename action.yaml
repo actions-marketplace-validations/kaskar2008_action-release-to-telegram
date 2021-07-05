@@ -4,7 +4,7 @@ inputs:
   template:
     description: 'Mustache template file path'
     required: true
-  serviceName:
+  service-name:
     description: 'What service are you releasing (default is repo name)'
     default: ''
   tag:
