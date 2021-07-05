@@ -1,0 +1,24 @@
+name: 'Prepare release message'
+description: 'Wraps given changelog with a flavor'
+inputs:
+  template:
+    description: 'Mustache template file path'
+    required: true
+  serviceName:
+    description: 'What service are you releasing (default is repo name)'
+    default: ''
+  tag:
+    description: 'Tag of the new release'
+    default: ''
+  changelog:
+    description: 'Release changelog'
+    default: ''
+outputs:
+  message:
+    description: 'Formatted message ready to send'
+runs:
+  using: 'node12'
+  main: 'index.js'
+branding:
+  icon: git-pull-request
+  color: green
