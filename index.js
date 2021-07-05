@@ -31,7 +31,7 @@ const DefaultTemplate = `
 `;
 
 function clearChangelog(input = '') {
-  return input.replace(/\#\# /g, '').trim();
+  return input.replace(/(\#\# )|( \(\#[0-9]{1,}\))/g, '').trim();
 }
 
 try {
