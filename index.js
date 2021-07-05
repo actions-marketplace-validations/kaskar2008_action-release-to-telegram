@@ -24,7 +24,6 @@ const DefaultTemplate = `
 📌 Service: *{{ serviceName }}*
 🔸 Development area: *Frontend*
 🗓 Date: *{{ date }}*
-🎯 Target: *Prod*
 🏷 Version: {{ tag }}
 🔗 Release: https://github.com/{{ owner }}/{{ repo }}/releases/tag/{{ tag }}
 
