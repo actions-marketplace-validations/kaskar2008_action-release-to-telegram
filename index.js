@@ -6,7 +6,7 @@ const path = require('path');
 /**
  * Resolves the repository path, relatively to the GITHUB_WORKSPACE
  */
- export function retrieveRepositoryPath() {
+function retrieveRepositoryPath() {
   let githubWorkspacePath = process.env['GITHUB_WORKSPACE'];
 
   if (!githubWorkspacePath) {
