@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const Mustache = require('mustache');
 const path = require('path');
+const fs = require('fs');
 
 /**
  * Resolves the repository path, relatively to the GITHUB_WORKSPACE
@@ -54,7 +55,7 @@ try {
   let templateMessage = DefaultTemplate;
 
   try {
-    templateMessage = require(path.resolve(retrieveRepositoryPath(), inputs.template));
+    templateMessage = fs.readFileSync(path.resolve(retrieveRepositoryPath(), inputs.template)).toString();
   } catch (e) {
     core.error('Template file was provided, but can not be injected');
     core.error(e);
