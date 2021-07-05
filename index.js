@@ -26,7 +26,7 @@ try {
   };
 
   const params = {
-    serviceName: serviceName || github.context.repo.repo,
+    serviceName: inputs.serviceName || github.context.repo.repo,
     repo: github.context.repo.repo,
     owner: github.context.repo.owner,
     date: new Date().toLocaleDateString('ru-RU', {year: 'numeric', month: '2-digit', day: '2-digit'}),
