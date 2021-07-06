@@ -38,7 +38,7 @@ try {
   const inputs = {
     template: core.getInput("template"),
     serviceName: core.getInput("service-name"),
-    tag: core.getInput("tag"),
+    tag: core.getInput("tag").replace('refs/tags/', ''),
     changelog: clearChangelog(core.getInput("changelog")),
   };
 
