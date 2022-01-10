@@ -40,6 +40,7 @@ try {
     serviceName: core.getInput("service-name"),
     tag: core.getInput("tag").replace('refs/tags/', ''),
     changelog: clearChangelog(core.getInput("changelog")),
+    customData: JSON.parse(core.getInput("custom") || '{}'),
   };
 
   const params = {
@@ -49,6 +50,7 @@ try {
     date: new Date().toLocaleDateString('ru-RU', {year: 'numeric', month: '2-digit', day: '2-digit'}),
     tag: inputs.tag,
     changelog: inputs.changelog,
+    customData: inputs.customData,
   };
 
   let templateMessage = DefaultTemplate;

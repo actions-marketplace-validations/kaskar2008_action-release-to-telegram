@@ -13,6 +13,9 @@ inputs:
   changelog:
     description: 'Release changelog'
     default: ''
+  customData:
+    description: 'Custom data object as a JSON'
+    default: ''
 outputs:
   message:
     description: 'Formatted message ready to send'
