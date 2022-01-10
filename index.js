@@ -40,7 +40,7 @@ try {
     serviceName: core.getInput("service-name"),
     tag: core.getInput("tag").replace('refs/tags/', ''),
     changelog: clearChangelog(core.getInput("changelog")),
-    customData: JSON.parse(core.getInput("custom") || '{}'),
+    customData: JSON.parse(core.getInput("customData") || '{}'),
   };
 
   const params = {
